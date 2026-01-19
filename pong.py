@@ -4,11 +4,11 @@ import time as t
 
 window = display.set_mode((700, 500))
 display.set_caption("dogonyalki")
-background = transform.scale(image.load("Изображение.jpg"), (700 ,500))
+background = transform.scale(image.load("table.jpg"), (700 ,500))
 font.init()
 font = font.Font(None, 80)
-win1 = font.render('Win', True, (255,255, 150))
-win2 = font.render('Win', True, (255,255, 150))
+win1 = font.render('Win Player left', True, (255,255, 150))
+win2 = font.render('Win Player right', True, (255,255, 150))
 
 class GameSprite(sprite.Sprite):
     def __init__(self, imageg, x, y, weidh, hight):
@@ -49,8 +49,8 @@ class Player(GameSprite):
 
 
 
-player1 = Player("imagepryam.png" , 50, 250, 20, 100, 5)
-player2 = Player("imagepryam.png" , 650, 250, 20, 100, 5)
+player1 = Player("raccketka.png" , 50, 250, 20, 100, 5)
+player2 = Player("raccketka.png" , 650, 250, 20, 100, 5)
 game = True
 clock = time.Clock()
 ball = Ball("image.png", 250, 300, 56, 56, 3, 3) 
@@ -71,10 +71,10 @@ while game:
         if ball.rect.y < 0 or ball.rect.y >444 :
             ball.speedy *= -1
         if ball.rect.x > 644:
-            window.blit(win1, (300, 200))
+            window.blit(win1, (150, 200))
             finish = True
         if ball.rect.x < 0:
-            window.blit(win2, (300, 200))
+            window.blit(win2, (150, 200))
             finish = True
     for e in event.get():
         if e.type == QUIT:
